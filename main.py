@@ -55,7 +55,7 @@ async def on_message(message):
             if x in message.content:
                 break
 
-        channel = bot.get_channel(966913077935235132)
+        channel = bot.get_channel(1149122307349033090)
         await channel.send(content=None, embed=discord.Embed.from_dict(
     {
       "title": f"Mortal Vex bot blocked a message in #{message.channel}" ,
