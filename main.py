@@ -44,6 +44,13 @@ self_ = bot.get_user(1052716430413541448)
 #Message respond event
 @bot.event
 async def on_message(message):
+
+    if (not message.author.bot):
+        return
+
+    if message.channel.id != 1145338032409563136:
+        return
+
     if (message.author.id == 1052716430413541448):
         return
     if isinstance(message.channel, discord.channel.DMChannel):
@@ -56,6 +63,7 @@ async def on_message(message):
                 break
 
         channel = bot.get_channel(1149122307349033090)
+        await message.delete()
         await channel.send(content=None, embed=discord.Embed.from_dict(
     {
       "title": f"Mortal Vex bot blocked a message in #{message.channel}" ,
@@ -77,7 +85,6 @@ async def on_message(message):
       ]
     }
   ))
-        await message.delete()
     else:
         return
 
